@@ -1,0 +1,31 @@
+.menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  height: 100%;
+  color: black;
+  font-weight: 700;
+  background: linear-gradient(to right, #D7D2CC, #304352);
+
+  .ico {
+    cursor: pointer;
+    width: 50px;
+    height: 80px;
+    text-align: center;
+    margin: auto;
+    border-radius: 10px;
+    transition: all 0.5s;
+
+    &:hover {
+      box-shadow: 0 0 10px 5px black;
+    }
+
+    &>img {
+      width: 50px;
+      height: 50px;
+    }
+  }
+}

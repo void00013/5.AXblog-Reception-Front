@@ -1,0 +1,31 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  font-size: 30px;
+  font-weight: 700;
+  text-align: center;
+  padding-left: 210px;
+  background-color: #304352;
+
+  &>img {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    left: 210px;
+    transform: translateY(-50%);
+    width: 30px;
+    height: 30px;
+    border: 1px solid #D7D2CC;
+    border-radius: 50%;
+    transition: all 0.5s;
+    z-index: 1;
+
+    &:hover {
+      box-shadow: 0 0 10px 5px rgba(215, 210, 204, 0.5);
+    }
+  }
+}
