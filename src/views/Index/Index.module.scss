@@ -1,0 +1,118 @@
+// 在js的react项目中可以直接使用css module
+// 在ts+react项目中需要配置两个文件：1.全局类型声明文件 globals.d.ts  2.tsconfig.json 具体配置见https: //blog.csdn.net/weixin_43094619/article/details/123086425
+// 只有类名才有样式隔离，标签没有样式隔离
+
+@keyframes rotate1 {
+  from {
+    transform: translate(-50%, -50%) rotate(0);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+@keyframes rotate2 {
+  from {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+
+  to {
+    transform: translate(-50%, -50%) rotate(0);
+  }
+}
+
+.index {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top left, #304352, #D7D2CC, #304352);
+
+  .title {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 100px;
+    color: #D7D2CC;
+    line-height: 100px;
+    text-align: center;
+    font-size: 30px;
+    font-weight: 700;
+    text-shadow: 0 0 10px #304352;
+  }
+
+  .enter {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 500px;
+    height: 500px;
+    padding: 20px;
+    border-radius: 50%;
+    background-color: rgba(48, 67, 82, 0.1);
+    box-shadow: 0 0 20px 10px rgb(47, 66, 80, 0.3);
+    animation: rotate1 20s linear infinite;
+    transition: all 3s;
+
+    &:hover {
+      animation-play-state: paused;
+      box-shadow: 0 0 200px 150px rgb(47, 66, 80, 0.1);
+    }
+
+    &:hover img:nth-of-type(1) {
+      animation-play-state: paused;
+    }
+
+    &>img {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      animation: rotate2 20s linear infinite;
+      box-shadow: 0 0 30px 10px rgba(0, 0, 0, 0.7);
+    }
+
+    .icon {
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 50px;
+      height: 80px;
+      text-align: center;
+      border-radius: 25px;
+      transition: all 1s;
+
+      &:hover {
+        background-color: rgba(48, 67, 82, 0.1);
+        box-shadow: 0 0 15px 8px rgb(47, 66, 80, 0.3);
+      }
+
+      &:nth-of-type(1) {
+        transform: translate(-50%, -50%) translateY(170px);
+      }
+      &:nth-of-type(2) {
+        transform: translate(-50%, -50%) rotate(60deg) translateY(170px);
+      }
+      &:nth-of-type(3) {
+        transform: translate(-50%, -50%) rotate(120deg) translateY(170px);
+      }
+      &:nth-of-type(4) {
+        transform: translate(-50%, -50%) rotate(180deg) translateY(170px);
+      }
+      &:nth-of-type(5) {
+        transform: translate(-50%, -50%) rotate(240deg) translateY(170px);
+      }
+      &:nth-of-type(6) {
+        transform: translate(-50%, -50%) rotate(300deg) translateY(170px);
+      }
+
+      img {
+        width: 50px;
+        height: 50px;
+      }
+    }
+  }
+}
+
