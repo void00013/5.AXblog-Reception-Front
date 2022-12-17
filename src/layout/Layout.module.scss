@@ -1,0 +1,28 @@
+.menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 200px;
+  height: 100%;
+  z-index: 2;
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 200px;
+  width: calc(100% - 200px);
+  height: 50px;
+  line-height: 50px;
+  z-index: 1;
+}
+
+.page {
+  position: absolute;
+  top: 50px;
+  left: 200px;
+  width: calc(100% - 200px);
+  height: calc(100% - 50px);
+  color: #D7D2CC;
+  background-color: #304352;
+}

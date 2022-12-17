@@ -11,7 +11,7 @@ function Menu() {
       return (
         <div className={styles.ico} key={item.text} onClick={
           () => {
-            item.route && navigate(item.route)
+            item.route && item.route === '/' ? navigate(item.route) :navigate('/page' + item.route)
             if(item.link) {
               document.location.href = item.link
             }

@@ -33,7 +33,7 @@ class MenuStore {
     {
       img: '/static/简历.png',
       text: '简历',
-      route: 'resume'
+      route: '/resume'
     },
     {
       img: '/static/about.png',
