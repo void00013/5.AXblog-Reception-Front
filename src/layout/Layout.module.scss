@@ -18,11 +18,11 @@
 }
 
 .page {
-  position: absolute;
-  top: 50px;
-  left: 200px;
+  margin-top: 50px;
+  margin-left: 200px;
   width: calc(100% - 200px);
   height: calc(100% - 50px);
   color: #D7D2CC;
   background-color: #304352;
+  overflow: auto;
 }

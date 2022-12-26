@@ -3,8 +3,9 @@ const Mock = require('mockjs')
 // 设置数据在几秒之后请求回去，模拟实际接口的等待状态
 Mock.setup({ timeout: '1000' })
 
+// ************blog接口**************
 // mock数据不能用postman在外面请求？
-Mock.mock('/mock/typelist', 'get', {
+Mock.mock('/mock/blog/typelist', 'get', {
   code: 200,
   data: [
     {
@@ -55,6 +56,7 @@ Mock.mock('/mock/typelist', 'get', {
   ]
 })
 
+// ***********article接口************
 Mock.mock('/mock/articleList/前端', 'get', {
   code: 200,
   typeId: 1,
@@ -225,41 +227,209 @@ Mock.mock('/mock/article/11', 'get', {
   }
 })
 
-// //get请求
-// module.exports = Mock.mock('/api/user', 'get', options => {
-//   const ret = Mock.mock({
-//     user: { username: '@cname' }
-//   })
-//   return {
-//     status: 200,
-//     data: ret
-//   }
-// })
+// ***********works接口**********
+// 作品类型列表
+Mock.mock('/mock/works/typelist', 'get', {
+  code: 200,
+  msg: '作品类型列表请求成功',
+  data: [
+    {
+      typeId: 1,
+      typeTitle: '前端',
+      typeIco: '/static/blog/编程/前端/前端.png'
+    },
+    {
+      typeId: 2,
+      typeTitle: '后端',
+      typeIco: '/static/blog/编程/后端/后端.png'
+    },
+    {
+      typeId: 3,
+      typeTitle: '嵌入式',
+      typeIco: '/static/blog/编程/嵌入式/嵌入式.png'
+    }
+  ]
+})
 
-// //get请求：模拟分页数据
-// module.exports = Mock.mock('/list', 'get', options => {
-//   //接受参数：是JSON格式，需要转换成对象
-//   const page = JSON.parse(options.body).page
-//   const ret = Mock.mock({
-//     'list|20': [{ 'id|+1': 1, name: '@cname' }]
-//   })
+// 作品列表
+Mock.mock('/mock/works/workslist', 'get', {
+  code: 200,
+  msg: '请求成功',
+  data: [
+    {
+      id: 1,
+      cover: '',
+      title: ''
+    }
+  ]
+})
 
-//   if (page > 3) {
-//     return {
-//       status: 200,
-//       data: []
-//     }
-//   }
-//   return {
-//     status: 200,
-//     data: ret
-//   }
-// })
-
-// //post请求，模拟注册
-// module.exports = Mock.mock('/add', 'post', options => {
-//   return {
-//     status: 200,
-//     data: JSON.parse(options.body).data
-//   }
-// })
+// 作品详情
+Mock.mock('/mock/works/前端', 'get', {
+  code: 200,
+  msg: '请求成功',
+  data: [
+    {
+      id: 1,
+      cover: '/static/作品/前端/vmusic/1.png',
+      title: 'v音乐',
+      description: '一个仿网易云音乐的网站',
+      displayList: [
+        {
+          num: 1,
+          img: '/static/作品/前端/vmusic/1.png',
+          tip: '文本1'
+        },
+        {
+          num: 2,
+          img: '/static/作品/前端/vmusic/2.png',
+          tip: '文本2'
+        },
+        {
+          num: 3,
+          img: '/static/作品/前端/vmusic/3.png',
+          tip: '文本3'
+        },
+        {
+          num: 4,
+          img: '/static/作品/前端/vmusic/4.png',
+          tip: '文本4'
+        },
+        {
+          num: 5,
+          img: '/static/作品/前端/vmusic/5.png',
+          tip: '文本5'
+        },
+        {
+          num: 6,
+          img: '/static/作品/前端/vmusic/6.png',
+          tip: '文本6'
+        },
+        {
+          num: 7,
+          img: '/static/作品/前端/vmusic/7.png',
+          tip: '文本7'
+        },
+        {
+          num: 8,
+          img: '/static/作品/前端/vmusic/8.png',
+          tip: '文本8'
+        }
+      ]
+    },
+    {
+      id: 2,
+      cover: '/static/作品/前端/大事件后台管理系统/2.png',
+      title: '大事件后台管理系统',
+      description: '一个发布文章的后台管理系统',
+      displayList: [
+        {
+          num: 1,
+          img: '/static/作品/前端/大事件后台管理系统/1.png',
+          tip: '文本1'
+        },
+        {
+          num: 2,
+          img: '/static/作品/前端/大事件后台管理系统/2.png',
+          tip: '文本2'
+        },
+        {
+          num: 3,
+          img: '/static/作品/前端/大事件后台管理系统/3.png',
+          tip: '文本3'
+        },
+        {
+          num: 4,
+          img: '/static/作品/前端/大事件后台管理系统/4.png',
+          tip: '文本4'
+        },
+        {
+          num: 5,
+          img: '/static/作品/前端/大事件后台管理系统/5.png',
+          tip: '文本5'
+        },
+        {
+          num: 6,
+          img: '/static/作品/前端/大事件后台管理系统/6.png',
+          tip: '文本6'
+        },
+        {
+          num: 7,
+          img: '/static/作品/前端/大事件后台管理系统/7.png',
+          tip: '文本7'
+        },
+        {
+          num: 8,
+          img: '/static/作品/前端/大事件后台管理系统/8.png',
+          tip: '文本8'
+        }
+      ]
+    },
+    {
+      id: 3,
+      cover: '/static/作品/前端/蛋糕管理平台/3.png',
+      title: '蛋糕管理平台',
+      description: '某个蛋糕店网站的管理后台',
+      displayList: [
+        {
+          num: 1,
+          img: '/static/作品/前端/蛋糕管理平台/1.png',
+          tip: '文本1'
+        },
+        {
+          num: 2,
+          img: '/static/作品/前端/蛋糕管理平台/2.png',
+          tip: '文本2'
+        },
+        {
+          num: 3,
+          img: '/static/作品/前端/蛋糕管理平台/3.png',
+          tip: '文本3'
+        },
+        {
+          num: 4,
+          img: '/static/作品/前端/蛋糕管理平台/4.png',
+          tip: '文本4'
+        },
+        {
+          num: 5,
+          img: '/static/作品/前端/蛋糕管理平台/5.png',
+          tip: '文本5'
+        }
+      ]
+    },
+    {
+      id: 4,
+      cover: '/static/作品/前端/电商后台管理系统/5.png',
+      title: '电商后台管理系统',
+      description: '一个简易的电商后台管理系统',
+      displayList: [
+        {
+          num: 1,
+          img: '/static/作品/前端/电商后台管理系统/1.png',
+          tip: '文本1'
+        },
+        {
+          num: 2,
+          img: '/static/作品/前端/电商后台管理系统/2.png',
+          tip: '文本2'
+        },
+        {
+          num: 3,
+          img: '/static/作品/前端/电商后台管理系统/3.png',
+          tip: '文本3'
+        },
+        {
+          num: 4,
+          img: '/static/作品/前端/电商后台管理系统/4.png',
+          tip: '文本4'
+        },
+        {
+          num: 5,
+          img: '/static/作品/前端/电商后台管理系统/5.png',
+          tip: '文本5'
+        }
+      ]
+    }
+  ]
+})

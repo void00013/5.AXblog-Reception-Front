@@ -9,11 +9,13 @@ html, body {
   width: 100%;
   /* 注意：这里加height: 100%时，里面的子盒子高度也为100%时下面会多出一部分空白区域，但是给子盒子加上绝对定位就可以解决这个问题 */
   /* height: 100%; */
+  background-color: #304352;
 }
 
 /* 滚动条整体样式 */
 ::-webkit-scrollbar {
   width: 8px;
+  height: 8px;
   background-color: #304352
 }
 

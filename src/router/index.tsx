@@ -21,20 +21,12 @@ export default function IndexRouter() {
           <Route path="blog" element={<Blog />} />
           <Route path="blog/:path" element={<Blog />} />
           <Route path="works" element={<Works />} />
+          <Route path="works/:path" element={<Works />} />
           <Route path="work" element={<Work />} />
           <Route path="resume" element={<Resume />} />
           <Route path="about" element={<About />} />
           <Route path="article" element={<Article />} />
         </Route>
-        {/* <Route path="/blog">
-          <Route path="" element={<Blog />} />
-          <Route path=":path" element={<Blog />} />
-        </Route>
-        <Route path="/works" element={<Works />} />
-        <Route path="/work" element={<Work />} />
-        <Route path="/resume" element={<Resume />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/article" element={<Article />} /> */}
       </Routes>
     </Router>
   )

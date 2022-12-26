@@ -17,8 +17,6 @@ function Article() {
     articleStore.getArticleDetail(searchParams.get('id'))
   }, [searchParams])
 
-  // todo:解决在切换文章时文章标题内容显示上一篇文章的BUG
-
   return (
     <div className={styles.article}>
       <h1 className={styles.title}>{articleStore.articleDetail.articleTitle}</h1>

@@ -1,5 +1,5 @@
 import { makeAutoObservable, runInAction } from 'mobx'
-import { myReq } from '@/utils/request'
+import { getBlogTypeList, getArticleList } from '@/api'
 
 interface typeList {
   typeId: number,
@@ -33,10 +33,10 @@ class BlogStore {
 
   // 在类中直接写的方法本身就是挂载到原型上的
   // 从接口请求类型列表数据
-  async getTypeList() {
+  async initBlogTypeList() {
     try {
-      const { data: res } = await myReq.get('/typelist')
-      // console.log(res)
+      const { data: res } = await getBlogTypeList()
+      // console.log('blogTypeList', res)
       if(res.code !== 200) return console.log(res.msg)
       // mobx中只能在acrion中重新赋值,异步导致赋值操作被加载到队列中,在action外面了, runInAction 函数将赋值操作包裹在action内部.
       runInAction(() => {
@@ -48,9 +48,9 @@ class BlogStore {
   }
 
   // 从接口请求文章列表
-  async getArticleList(type: string) {
+  async initArticleList(type: string) {
     try {
-      const { data: res } = await myReq.get(`/articleList/${type}`)
+      const { data: res } = await getArticleList(type)
       // console.log(res)
       if(res.code !== 200) return console.log(res.msg)
       runInAction(() => {
@@ -64,4 +64,4 @@ class BlogStore {
 
 const blogStore = new BlogStore()
 
-export { blogStore }
+export default blogStore

@@ -14,4 +14,4 @@ class HeaderStore {
 
 const headerStore = new HeaderStore()
 
-export { headerStore }
+export default headerStore

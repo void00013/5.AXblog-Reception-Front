@@ -1,5 +1,5 @@
 import { makeAutoObservable, runInAction } from "mobx";
-import { myReq } from "@/utils/request";
+import { getArticleDetail } from "@/api";
 
 interface articleDetail {
     typeId: number,
@@ -37,7 +37,7 @@ class ArticleStore {
   // 获取文章详情
   async getArticleDetail(id: string | null) {
     try {
-      const { data: res } = await myReq.get(`/article/${id}`)
+      const { data: res } = await getArticleDetail(id)
       // console.log(res)
       if(res.code !== 200) return console.log(res.msg)
       // mobx中只能在acrion中重新赋值,异步导致赋值操作被加载到队列中,在action外面了, runInAction 函数将赋值操作包裹在action内部.
@@ -52,4 +52,4 @@ class ArticleStore {
 
 const articleStore = new ArticleStore()
 
-export { articleStore }
+export default articleStore
